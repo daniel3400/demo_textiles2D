@@ -13,7 +13,7 @@ interface ElementEditorPanelProps {
   onAddElement: (elementPublicId: string, elementType: string, localSrc?: string) => void; // Modificado para incluir localSrc
   selectedElement?: DesignElement | null;
   onRemoveElement: () => void;
-  onElementPropertyChange: (elementId: string, property: keyof DesignElement, value: any) => void;
+  onElementPropertyChange: (elementId: string, property: keyof DesignElement, value: DesignElement[keyof DesignElement]) => void; // Corregido: tipo para value
 }
 
 // Lista de bolsillos disponibles con Public IDs de Cloudinary y localSrc
@@ -66,7 +66,7 @@ export default function ElementEditorPanel({
 }: ElementEditorPanelProps) {
   const [isPocketsOpen, setIsPocketsOpen] = useState(true); // Estado para el desplegable de bolsillos
 
-  const handlePropertyChange = (property: keyof DesignElement, value: any) => {
+  const handlePropertyChange = (property: keyof DesignElement, value: DesignElement[keyof DesignElement]) => { // Corregido: tipo para value
     if (selectedElement) {
       onElementPropertyChange(selectedElement.id, property, value);
     }

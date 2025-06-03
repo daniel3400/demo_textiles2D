@@ -7,12 +7,11 @@ import { auto } from "@cloudinary/url-gen/qualifiers/format";
 import { auto as qAuto } from "@cloudinary/url-gen/qualifiers/quality";
 import { GarmentProperties } from '@/types/elements'; // Importar GarmentProperties
 import Image from 'next/image'; // Para fallback local
-import { useState } from 'react';
 
 interface GarmentOptionsPanelProps {
   onGarmentChange: (publicId: string, localSrc?: string) => void; // Modificado para incluir localSrc
   garmentProps: GarmentProperties; // Usar GarmentProperties
-  onGarmentPropertyChange: (property: keyof GarmentProperties, value: any) => void;
+  onGarmentPropertyChange: (property: keyof GarmentProperties, value: GarmentProperties[keyof GarmentProperties]) => void; // Corregido: tipo para value
 }
 
 // DEBES REEMPLAZAR ESTOS PUBLIC IDs CON LOS TUYOS Y AÑADIR localSrc SI ES NECESARIO

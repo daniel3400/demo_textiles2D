@@ -8,10 +8,6 @@ import { DesignElement, GarmentProperties } from '@/types/elements'; // Importar
 import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToParentElement } from '@dnd-kit/modifiers';
 
-// Importa tu instancia de Cloudinary
-import cld from '@/lib/cloudinary';
-import { Effect } from "@cloudinary/url-gen/actions/effect"; // Corregido: Effect con mayúscula
-
 export default function HomePage() {
   const [garmentProperties, setGarmentProperties] = useState<GarmentProperties>({
     publicId: '', // Inicialmente vacío para usar localSrc
@@ -85,17 +81,23 @@ export default function HomePage() {
     }
   };
 
-  const handleElementPropertyChange = useCallback((elementId: string, property: keyof DesignElement, value: any) => {
-    setElementsOnCanvas(prevElements =>
-      prevElements.map(el =>
-        el.id === elementId ? { ...el, [property]: value } : el
-      )
-    );
-  }, []);
+  const handleElementPropertyChange = useCallback(
+    (elementId: string, property: keyof DesignElement, value: DesignElement[keyof DesignElement]) => {
+      setElementsOnCanvas(prevElements =>
+        prevElements.map(el =>
+          el.id === elementId ? { ...el, [property]: value } : el
+        )
+      );
+    },
+    []
+  );
 
-  const handleGarmentPropertyChange = useCallback((property: keyof GarmentProperties, value: any) => {
-    setGarmentProperties(prev => ({ ...prev, [property]: value }));
-  }, []);
+  const handleGarmentPropertyChange = useCallback(
+    (property: keyof GarmentProperties, value: GarmentProperties[keyof GarmentProperties]) => {
+      setGarmentProperties(prev => ({ ...prev, [property]: value }));
+    },
+    []
+  );
 
   const selectedElement = elementsOnCanvas.find(el => el.id === selectedElementId);
 

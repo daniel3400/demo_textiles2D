@@ -10,6 +10,7 @@ import { Rotate as CloudinaryRotate } from "@cloudinary/url-gen/actions/rotate";
 import { format, quality } from "@cloudinary/url-gen/actions/delivery";
 import { auto } from "@cloudinary/url-gen/qualifiers/format";
 import { auto as qAuto } from "@cloudinary/url-gen/qualifiers/quality";
+import Image from 'next/image'; // Importar Next Image
 
 interface DraggableElementProps {
   element: DesignElement;
@@ -28,7 +29,7 @@ function DraggableElement({ element, isSelected, onSelect, onResize }: Draggable
   const baseImageStyle = { 
     width: '100%', 
     height: '100%', 
-    objectFit: 'contain' as 'contain',
+    objectFit: 'contain' as const, // Corregido: prefer-as-const
   };
 
   if (element.publicId) {
@@ -50,7 +51,8 @@ function DraggableElement({ element, isSelected, onSelect, onResize }: Draggable
     imageComponent = <AdvancedImage cldImg={cloudinaryImage} style={baseImageStyle} plugins={[]} />;
   } else if (element.localSrc) {
     const localImageStyle = { ...baseImageStyle, transform: element.rotation ? `rotate(${element.rotation}deg)` : undefined }; 
-    imageComponent = <img src={element.localSrc} alt={element.type || 'design element'} style={localImageStyle} />;
+    // Corregido: Usar Next Image para imágenes locales
+    imageComponent = <Image src={element.localSrc} alt={element.type || 'design element'} layout="fill" style={localImageStyle} />;
   } else {
     imageComponent = <div style={{width: '100%', height: '100%', border: '1px dashed gray', display:'flex', alignItems:'center', justifyContent:'center'}}>No Image</div>;
   }
@@ -61,11 +63,11 @@ function DraggableElement({ element, isSelected, onSelect, onResize }: Draggable
     top: `${element.y}px`,
     width: `${element.width}px`,
     height: `${element.height}px`,
-    position: 'absolute' as 'absolute',
+    position: 'absolute' as const, // Corregido: prefer-as-const
     zIndex: isDragging ? 100 : (isSelected ? 50 : (element.zIndex || 1)),
     opacity: isDragging ? 0.8 : 1,
     border: isSelected ? '2px solid #3b82f6' : '2px solid transparent',
-    boxSizing: 'border-box' as 'border-box',
+    boxSizing: 'border-box' as const, // Corregido: prefer-as-const
     // La rotación del elemento en sí (div contenedor) no es necesaria si la imagen ya está rotada
   };
 
@@ -139,7 +141,7 @@ export default function DesignCanvas({ garmentProps, elements, selectedElementId
   const garmentBaseStyle: React.CSSProperties = {
     width: '100%', 
     height: '100%', 
-    objectFit: 'contain'
+    objectFit: 'contain' as const, // Corregido: prefer-as-const
   };
 
   if (garmentProps.publicId) {
@@ -160,11 +162,11 @@ export default function DesignCanvas({ garmentProps, elements, selectedElementId
                               plugins={[]} 
                             />;
   } else if (garmentProps.localSrc) {
-    // Para la prenda local, no estamos aplicando rotación ni color por ahora.
-    // Se podría añadir transform: rotate() al estilo si se agrega una propiedad de rotación a GarmentProperties.
-    garmentImageComponent = <img 
+    // Corregido: Usar Next Image para la prenda local
+    garmentImageComponent = <Image 
                               src={garmentProps.localSrc} 
                               alt="Prenda seleccionada (Local)" 
+                              layout="fill"
                               style={garmentBaseStyle} 
                             />;
   } else {
