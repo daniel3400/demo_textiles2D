@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Plataforma de Diseño Textil Interactivo
 
 Esta es una plataforma para diseñar prendas de forma interactiva, permitiendo la personalización de elementos y la estimación de costos.
@@ -44,6 +43,3 @@ Para aprender más sobre Next.js, echa un vistazo a los siguientes recursos:
 La forma más sencilla de desplegar tu aplicación Next.js es usar la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) de los creadores de Next.js.
 
 Consulta nuestra [documentación de despliegue de Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para más detalles.
-=======
-# demo_textiles2D
->>>>>>> a6df2f40193071397eab009562930871d4d342df
