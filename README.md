@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Plataforma de Diseño Textil Interactivo
 
-## Getting Started
+Esta es una plataforma para diseñar prendas de forma interactiva, permitiendo la personalización de elementos y la estimación de costos.
 
-First, run the development server:
+## Tecnologías (Planeadas)
+
+- Next.js
+- Cloudinary (o alternativa para manejo de imágenes/modelos 3D)
+- Supabase (o alternativa para base de datos)
+- Vercel (para despliegue)
+
+## Primeros Pasos
+
+Primero, ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
+# o
 pnpm dev
-# or
+# o
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver el resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Puedes empezar editando la página modificando `src/app/page.tsx`. La página se actualiza automáticamente a medida que editas el archivo.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este proyecto usa [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) para optimizar e incluir fuentes automáticamente.
 
-## Learn More
+## Aprende Más
 
-To learn more about Next.js, take a look at the following resources:
+Para aprender más sobre Next.js, echa un vistazo a los siguientes recursos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Documentación de Next.js](https://nextjs.org/docs) - aprende sobre las características y la API de Next.js.
+- [Aprender Next.js](https://nextjs.org/learn) - un tutorial interactivo de Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+¡Puedes consultar [el repositorio de Next.js en GitHub](https://github.com/vercel/next.js) - tus comentarios y contribuciones son bienvenidos!
 
-## Deploy on Vercel
+## Despliegue en Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La forma más sencilla de desplegar tu aplicación Next.js es usar la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) de los creadores de Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Consulta nuestra [documentación de despliegue de Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para más detalles.
